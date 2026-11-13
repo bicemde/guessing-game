@@ -1,0 +1,679 @@
+
+{
+  "dataset_name": "Animal Guessing Game",
+  "description": "A dataset of 48 familiar animals for a yes/no guessing game. Null means the trait is unknown or varies by species.",
+  "animals": [
+    {
+      "name": "Dog",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "omnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Cat",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "carnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Horse",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "herbivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Cow",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "herbivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Sheep",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "herbivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Goat",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "herbivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Pig",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "omnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Rabbit",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "herbivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": false,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Hamster",
+      "group": "mammal",
+      "habitat": ["land", "domestic"],
+      "diet": "omnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": false,
+        "lays_eggs": false,
+        "domesticated": true,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Mouse",
+      "group": "mammal",
+      "habitat": ["land"],
+      "diet": "omnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Lion",
+      "group": "mammal",
+      "habitat": ["land"],
+      "diet": "carnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Tiger",
+      "group": "mammal",
+      "habitat": ["land"],
+      "diet": "carnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Elephant",
+      "group": "mammal",
+      "habitat": ["land"],
+      "diet": "herbivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Giraffe",
+      "group": "mammal",
+      "habitat": ["land"],
+      "diet": "herbivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": false,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Zebra",
+      "group": "mammal",
+      "habitat": ["land"],
+      "diet": "herbivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": false,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Monkey",
+      "group": "mammal",
+      "habitat": ["land", "trees"],
+      "diet": "omnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Gorilla",
+      "group": "mammal",
+      "habitat": ["land", "forest"],
+      "diet": "herbivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": false,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Bear",
+      "group": "mammal",
+      "habitat": ["land", "forest"],
+      "diet": "omnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Fox",
+      "group": "mammal",
+      "habitat": ["land", "forest"],
+      "diet": "omnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Wolf",
+      "group": "mammal",
+      "habitat": ["land", "forest"],
+      "diet": "carnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Deer",
+      "group": "mammal",
+      "habitat": ["land", "forest"],
+      "diet": "herbivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Kangaroo",
+      "group": "mammal",
+      "habitat": ["land"],
+      "diet": "herbivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Koala",
+      "group": "mammal",
+      "habitat": ["land", "trees"],
+      "diet": "herbivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Panda",
+      "group": "mammal",
+      "habitat": ["land", "forest"],
+      "diet": "herbivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Dolphin",
+      "group": "mammal",
+      "habitat": ["water", "ocean"],
+      "diet": "carnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Whale",
+      "group": "mammal",
+      "habitat": ["water", "ocean"],
+      "diet": "carnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Bat",
+      "group": "mammal",
+      "habitat": ["land", "caves"],
+      "diet": "omnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": true,
+        "can_swim": false,
+        "lays_eggs": false,
+        "domesticated": false,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Chicken",
+      "group": "bird",
+      "habitat": ["land", "domestic"],
+      "diet": "omnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": true,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Duck",
+      "group": "bird",
+      "habitat": ["land", "water"],
+      "diet": "omnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": true,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Goose",
+      "group": "bird",
+      "habitat": ["land", "water"],
+      "diet": "herbivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": true,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Penguin",
+      "group": "bird",
+      "habitat": ["land", "water", "ocean"],
+      "diet": "carnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Eagle",
+      "group": "bird",
+      "habitat": ["land", "mountains"],
+      "diet": "carnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": true,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Owl",
+      "group": "bird",
+      "habitat": ["land", "forest"],
+      "diet": "carnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": true,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": true
+      }
+    },
+    {
+      "name": "Parrot",
+      "group": "bird",
+      "habitat": ["land", "trees"],
+      "diet": "herbivore",
+      "size": "small",
+      "traits": {
+        "can_fly": true,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Flamingo",
+      "group": "bird",
+      "habitat": ["land", "water"],
+      "diet": "omnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": true,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Ostrich",
+      "group": "bird",
+      "habitat": ["land"],
+      "diet": "omnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Snake",
+      "group": "reptile",
+      "habitat": ["land"],
+      "diet": "carnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Crocodile",
+      "group": "reptile",
+      "habitat": ["land", "water"],
+      "diet": "carnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Turtle",
+      "group": "reptile",
+      "habitat": ["land", "water"],
+      "diet": "omnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Lizard",
+      "group": "reptile",
+      "habitat": ["land"],
+      "diet": "omnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Frog",
+      "group": "amphibian",
+      "habitat": ["land", "water"],
+      "diet": "carnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Shark",
+      "group": "fish",
+      "habitat": ["water", "ocean"],
+      "diet": "carnivore",
+      "size": "large",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": null,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Clownfish",
+      "group": "fish",
+      "habitat": ["water", "ocean"],
+      "diet": "omnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Goldfish",
+      "group": "fish",
+      "habitat": ["water", "domestic"],
+      "diet": "omnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": true,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Octopus",
+      "group": "invertebrate",
+      "habitat": ["water", "ocean"],
+      "diet": "carnivore",
+      "size": "medium",
+      "traits": {
+        "can_fly": false,
+        "can_swim": true,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    },
+    {
+      "name": "Butterfly",
+      "group": "insect",
+      "habitat": ["land", "trees"],
+      "diet": "herbivore",
+      "size": "small",
+      "traits": {
+        "can_fly": true,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Bee",
+      "group": "insect",
+      "habitat": ["land"],
+      "diet": "herbivore",
+      "size": "small",
+      "traits": {
+        "can_fly": true,
+        "can_swim": false,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": false
+      }
+    },
+    {
+      "name": "Spider",
+      "group": "arachnid",
+      "habitat": ["land"],
+      "diet": "carnivore",
+      "size": "small",
+      "traits": {
+        "can_fly": false,
+        "can_swim": null,
+        "lays_eggs": true,
+        "domesticated": false,
+        "active_at_night": null
+      }
+    }
+  ]
+}
