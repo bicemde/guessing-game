@@ -16,3 +16,5 @@ Now, think of an animal and I'll try to guess what it is. :rainbow[Let's play!]
 guess = st.text_input(
     "Write your guess here!",
 )
+
+print(guess)
