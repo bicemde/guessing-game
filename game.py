@@ -1,6 +1,5 @@
 import json
 from questions import QUESTIONS
-import questions
 
 print(questions.__file__)
 print(type(questions.QUESTIONS))
@@ -46,11 +45,21 @@ def filter_answers(animals, answers):
 
 
 def call_current_question(question_index):
-    if question_index < len(QUESTIONS):
-        return QUESTIONS[question_index]
-    return None
-question_index = 0
-current_question = call_current_question(question_index)
+    question_keys = list(QUESTIONS.keys())
 
-print(current_question["question"])
+    if question_index < len(question_keys):
+        trait = question_keys[question_index]
+
+        return {
+            "trait": trait,
+            "question": QUESTIONS[trait]
+        }
+
+    return None
+
+
+def save_answer(answers, trait, user_answer):
+    answers[trait] = user_answer
+    return answers
+
 
