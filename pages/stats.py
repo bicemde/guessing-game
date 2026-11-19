@@ -32,7 +32,7 @@ total_games = len(game_history)
 correct_games = 0
 
 for game in game_history:
-    if game.get("correct") is True:
+    if game.get("success") is True:
         correct_games += 1
 
 # Calculate accuracy
@@ -87,10 +87,9 @@ else:
 
 st.subheader("How many times was each animal guessed?")
 
-if total_games > 0 and "guess" in df.columns:
+if total_games > 0 and "animal" in df.columns:
 
-    # Count each animal
-    guess_frequency = df["guess"].dropna().value_counts()
+    guess_frequency = df["animal"].dropna().value_counts()
 
     if not guess_frequency.empty:
         st.bar_chart(guess_frequency)
