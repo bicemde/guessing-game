@@ -8,7 +8,6 @@ import pandas as pd
 
 st.title("Animal Guessing Game Statistics")
 
-st.caption("STATS PAGE UPDATED - VERSION 3")
 
 
 # --------------------------------
@@ -92,7 +91,10 @@ if total_games > 0 and "animal" in df.columns:
     guess_frequency = df["animal"].dropna().value_counts()
 
     if not guess_frequency.empty:
-        st.bar_chart(guess_frequency)
+        st.bar_chart(
+        guess_frequency,
+        color="#C45B83"
+)
     else:
         st.info("No animals have been guessed yet.")
 

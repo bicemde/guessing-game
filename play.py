@@ -273,8 +273,7 @@ with middle:
             st.switch_page("pages/stats.py")
 
             
-                
-st.write(st.session_state.game_history)
+            
 
         
 # to do :
