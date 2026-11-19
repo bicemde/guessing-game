@@ -31,7 +31,6 @@ def filter_animals(animals, trait, value):
                        
 
 
-answers = {}
 
 def filter_answers(animals, answers):
     possible_animals = animals
@@ -60,4 +59,14 @@ def save_answer(answers, trait, user_answer):
     answers[trait] = user_answer
     return answers
 
+
+def save_game_result(game_history, animal, questions_asked, success):
+    game_result = {
+        "animal": animal,
+        "questions_asked": questions_asked,
+        "success": success
+    }
+
+    game_history.append(game_result)
+    return game_history
 

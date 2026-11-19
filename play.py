@@ -33,6 +33,12 @@ if "llm_question" not in st.session_state:
 if "llm_asked" not in st.session_state:
     st.session_state.llm_asked = []
 
+if "game_history" not in st.session_state:
+    st.session_state.game_history = []
+
+if "game_recorded" not in st.session_state:
+    st.session_state.game_recorded = False
+
 # background color
 st.markdown(
     """
@@ -44,6 +50,24 @@ st.markdown(
     """,
     unsafe_allow_html=True  # to make the html code work properly in streamlit
 )
+
+
+def record_current_game(animal, success):
+    if not st.session_state.game_recorded:
+        questions_asked = (
+            len(st.session_state.answers)
+            + len(st.session_state.llm_asked)
+        )
+
+        game.save_game_result(
+            st.session_state.game_history,
+            animal,
+            questions_asked,
+            success
+        )
+
+        st.session_state.game_recorded = True
+
 def reset_game():
     st.session_state.game_started = False
     st.session_state.answers = {}
@@ -53,6 +77,7 @@ def reset_game():
     st.session_state.llm_candidates = None
     st.session_state.llm_question = None
     st.session_state.llm_asked = []
+    st.session_state.game_recorded = False
 
 
 def set_guess_result(value):
@@ -201,6 +226,7 @@ else:
 
                 if submitted:
                     if animal_name.strip():
+                        record_current_game(animal_name.strip(), False)
                         st.success(f"Ahh, it was a {animal_name}! Thanks for teaching!")
                 else:
                     st.warning("Please enter an animal name!")
@@ -211,10 +237,12 @@ else:
                 c1, c2 = st.columns(2)
                 with c1:
                     if st.button("YES", key="guess_yes", use_container_width=True):
+                        record_current_game(guess, True)
                         st.session_state.guess_result = True
                         st.rerun()
                 with c2:
                     if st.button("NO", key="guess_no", use_container_width=True):
+                        record_current_game(guess, False)
                         st.session_state.guess_result = False
                         st.rerun()
             elif st.session_state.guess_result is True:
@@ -246,7 +274,7 @@ with middle:
 
             
                 
-
+st.write(st.session_state.game_history)
 
         
 # to do :
