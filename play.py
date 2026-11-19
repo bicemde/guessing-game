@@ -3,7 +3,6 @@ import streamlit as st
 import game
 from questions import QUESTIONS
 import llm
-import stats
 
 
 
@@ -242,9 +241,10 @@ with middle:
         st.button("Reset", on_click=reset_game)
 
     with col2:
-        st.page_link("stats.py", label="Stats")
+        if st.button("Stats"):
+            st.switch_page("pages/stats.py")
 
-                
+            
                 
 
 
