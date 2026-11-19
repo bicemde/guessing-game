@@ -1,8 +1,6 @@
 import json
 from questions import QUESTIONS
 
-print(questions.__file__)
-print(type(questions.QUESTIONS))
 # The animal.json file was created with Chatgpt.
 
 def load_animals():
