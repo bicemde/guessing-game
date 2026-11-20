@@ -4,7 +4,10 @@ import game
 from questions import QUESTIONS
 import llm
 
-
+# Initialize and manage the game state using streamlit's session_state
+# This keeps important game information, like user answers, remaining
+# animal candidates, questions, and game history, available across reruns.
+# Each variable is initialized only once to avoid resetting the game state.
 
 if "game_started" not in st.session_state: # session memory of the streamlit: allows us to preserve the values of variables when the pages or the application are re-run
     st.session_state.game_started = False
@@ -50,7 +53,9 @@ st.markdown(
     """,
     unsafe_allow_html=True  # to make the html code work properly in streamlit
 )
-
+# Records the result of a completed game, including the guessed animal, the total number of questions asked and whether the guess was correct.
+# The game_recorded flag prevent the same game from being added to the
+# history multiple times during Streamlit reruns:
 
 def record_current_game(animal, success):
     if not st.session_state.game_recorded:
@@ -68,7 +73,7 @@ def record_current_game(animal, success):
 
         st.session_state.game_recorded = True
 
-def reset_game():
+def reset_game(): 
     st.session_state.game_started = False
     st.session_state.answers = {}
     st.session_state.question_index = 0
@@ -82,6 +87,10 @@ def reset_game():
 
 def set_guess_result(value):
     st.session_state.guess_result = value
+
+
+# Displays the welcome screen of the game.
+# Custom HTML and CSS stylings are used to create a visually appealing user interface.
 
 def game_initialize():
 
@@ -118,7 +127,7 @@ def game_initialize():
         unsafe_allow_html=True
     )
 
-    col1, col2, col3 = st.columns([1, 1, 1])
+    col1, col2, col3 = st.columns([1, 1, 1]) # centers the 'play' button
 
     with col2:
         if st.button("PLAY 🐾", use_container_width=True):
@@ -130,14 +139,14 @@ if not st.session_state.game_started:
     game_initialize()
 else:
 
-
-    if st.session_state.question_index < len(QUESTIONS):
-
-        current_question = game.call_current_question(
+    # Checks whether there are predefined questions remaining.
+    if st.session_state.question_index < len(QUESTIONS): 
+        # retrieves the current question based on the question index:
+        current_question = game.call_current_question( 
             st.session_state.question_index
     )
-    
-        st.markdown(
+        # and displays it in the center of the page with custom styling.
+        st.markdown( 
             f"""
             <h2 style='text-align: center; color: #C45B83;'>
                 {current_question["question"]}
@@ -146,9 +155,10 @@ else:
             unsafe_allow_html=True
         )
 
-        col1, col2 = st.columns(2)
+        col1, col2 = st.columns(2)  # Creates two columns for the yes/no buttons 
 
-        st.markdown("""
+        #custom CSS styling to Streamlit buttons
+        st.markdown(""" 
         <style>
         .stButton > button {
             background-color: #F8BBD0;
@@ -167,7 +177,8 @@ else:
         </style>
         """, unsafe_allow_html=True)
 
-
+        # Stores the user's Yes - No answer for the current question
+        # updates the question index, and reruns the app to display the next question
         with col1:
             if st.button("YES", use_container_width=True):
                 st.session_state.answers[current_question["trait"]] = True
@@ -180,7 +191,10 @@ else:
                 st.session_state.question_index += 1
                 st.rerun()
 
-
+    # Once all predefined questions have been answered, filters the animal
+    # dataset using the user's answers to identify the remaining candidates.
+    # Initializes the LLM candidate list with the names of these animals
+    # and prepares the final guessing stage
     else:
         possible_animals = game.filter_answers(st.session_state.animals, st.session_state.answers)
 
@@ -190,9 +204,12 @@ else:
 
         guess = None
 
+        # If only one animal remains, it is selected as the final guess
         if len(names) == 1:
             guess = names[0]
 
+        # If multiple candidates remain, the LLM generates an additional question to distinguish between them. 
+        # The question is generated only once and displayed to the user while the LLM is processing.
         elif len(names) > 1:
             if st.session_state.llm_question is None:
                 with st.spinner("I am thinking.."):
@@ -202,7 +219,8 @@ else:
             q = st.session_state.llm_question
             st.markdown(f"<h2 style='text-align:center; color:#C45B83;'>{q}</h2>", unsafe_allow_html=True)
 
-
+            # Processes the user's Yes-No response to an LLM-generated question. The LLM filters the remaining animal candidates based on the answer.
+            # The question is added to the game history, the current LLM question is reset and the app reruns to continue the guessing process.
             c1, c2 = st.columns(2)
             with c1:
                 if st.button("YES", key="llm_yes", use_container_width=True):
@@ -216,6 +234,9 @@ else:
                     st.session_state.llm_asked.append(q)
                     st.session_state.llm_question = None
                     st.rerun()
+
+        # the situation where the application cannot identify the animal.
+        # Asks the user to enter the correct animal name and records the game as an unsuccessful guess, allowing the game history to be updated.
         else:
             st.markdown("Sorry! I couldn't guess your animal! ")
             st.write("What was the animal you were thinking of?")
@@ -231,6 +252,7 @@ else:
                 else:
                     st.warning("Please enter an animal name!")
 
+        # shows the application's final animal guess and asks the user to confirm whether it is correct.
         if guess is not None:
             if st.session_state.guess_result is None:
                 st.markdown(f"## Is your animal a {guess}? 🐾")
@@ -258,7 +280,8 @@ else:
 
 
 
-
+# The Reset button: starts a new game by clearing the current game state
+# The Stats button: navigates to the statistics page.
 
 left, middle, right = st.columns([2, 2, 2])
 
@@ -274,6 +297,9 @@ with middle:
 
             
             
+
+
+
 
         
 # to do :

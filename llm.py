@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 """
-LLM Integration
+LLM Integration:
 
 The game first uses a "predefined list of questions" to narrow down the possible
 animals. If more than one candidate remains after all predefined questions
