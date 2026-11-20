@@ -1,86 +1,87 @@
-STEP BY STEP GUIDE FOR TASK 1
-=============================
+# Animal Guessing Game
 
-Part 1: Create and test your development environment
+An interactive animal guessing game built with **Python, Streamlit and a Large Language Model (LLM)**.
 
-1. Make sure the content of this archive is extracted in a separate directory.
-2. Create a Python Virtual Environment in this directory (see Courseware)
-3. Activate the environment
-4. Install the requirements: pip install -r requirements.txt
-5. Try to run the demo app: streamlit run app.py
+The application combines a predefined question-based system with an LLM to identify an animal the user has in mind. It also tracks game results and displays statistics.
 
-Part 2: Create github repository and test deployment
+## Features
 
-1. Modify the demo.py app at your convenience (see https://docs.streamlit.io/develop/api-reference/text for text formatting options, also look at the Media and Layout sections)
-2. Create a github account (if you don't have one yet) and create an empty repository. Look for the repository https URL.
-3. Make your local folder a git repository and connect it to the github repository (see Courseware)
-4. Commit and push your code
-5. Create an accout at streamlit.io and click on "Create app". Connect to your github account by following the instructions. Select app.py as the script to run and deploy your app.
-6. Voila! Streamlit should display a URL that you can use to access your app on the streamlit community server. This is not limited to you but everyone who knows this URL can. (So be careful what you include in your app)
+- **Play:** An interactive animal guessing game.
+- **Rule-based questions:** The game starts with five predefined yes/no questions to narrow down the possible animals.
+- **LLM integration:** If multiple possible animals remain after the predefined questions, the LLM generates additional questions to distinguish between the remaining candidates and make a final guess.
+- **Game statistics:** Tracks the number of games played, successful guesses, and questions asked per game.
+- **Stats page:** Displays game history, accuracy, and visualizations of game results.
 
-Part 3: Start working on the task
+## How It Works
 
-1. Think of a guessing game that you like to implement.
-2. Modify the app.py file (or create a new one):
--- At first, don't care about the guessing logic. Create a nice interface.
--- Make sure you have an input widget for the guesses and check the results against a fixed value. Implement the feedback logic.
--- Now take care of the real guessing logic: a) Initialize a new goal if neccessary, b) Check if guess meets the goal, c) Provide feedback
-3. Create and update data structures for statistics and chat view (counting guesses, perhaps maintaining a history etc.)
-4. Transform your guessing and feedback interface to a chat interface (see https://docs.streamlit.io/develop/api-reference/chat ). Look at https://streamlit.io/generative-ai for a chat example (the OpenAI connection will only be made in part 2 of the task, just look at the overall structure and the data structures)
-5. Make your app a multipage app by creating a new file for the navigation (see https://docs.streamlit.io/develop/concepts/multipage-apps/page-and-navigation) and a dummy file for the statistics
-6. Add logic to the statistics file
-7. Test everything and, if happy, commit, push and deploy!
+The game follows a hybrid approach, combining traditional Python logic with LLM-based question generation.
 
-Part 1 of task 1 is already done with this!
-
-Here's the full task (see Vips for potentialls updated versions):
+1. The user thinks of an animal and starts the game.
+2. The application asks five predefined yes/no questions, such as:
+   - Can your animal fly?
+   - Can your animal swim?
+   - Does your animal lay eggs?
+   - Is your animal domesticated?
+   - Is your animal active at night?
+3. Python filters the animal dataset based on the user's answers and narrows down the possible candidates.
+4. If only one candidate remains, the application makes its guess.
+5. If multiple candidates remain after the five predefined questions, the LLM takes over. It generates additional questions based on the remaining candidates and uses the user's answers to narrow them down further.
+6. The application presents its final guess and records the game result.
 
 
-TASK 1
-======
+## Installation
 
-Objectives
-----------
+### 1. Clone the repository
 
-Create a streamlit app that fulfills the following requirements.
+```bash
+git clone https://github.com/bicemde/guessing-game.git
+cd guessing-game
+```
 
-Basic requirements (max. 70% of points):
+### 2. Create and activate a virtual environment (optional but recommended)
 
-The app has at least two pages: "Play" and "Stats"
+```bash
+python -m venv venv
+```
 
-"Play" page:
+On macOS/Linux:
 
-- The "Play" page features a guessing game in which the user guesses something and the app evaluates guesses, giving hints and checking whether the guessing goal was found.
-- The guessing game uses Streamlit's chat component.
+```bash
+source venv/bin/activate
+```
 
-"Stats" page:
+### 3. Install dependencies
 
-- The "Stats" page displays some stats about playing like the number of games played, the average number of guesses per game. 
-- The "Stats" page displays a bar chart showing he number of guesses for each game
-Stability and Usability:
+```bash
+pip install -r requirements.txt
+```
 
-- The app works and does not crash, even for malformed input
-- The app has a clean, logical look and is intuitive to be use
+### 4. Configure the API key
 
-Code quality:
+The LLM integration requires an API key for the university's LiteLLM endpoint.
 
-- The code is making use of streamlit features in a good way
-- The code is not longer and more complex than necessary
-- The code includes comments
+Create a file named `.env` in the project root directory:
 
-Additional requirements  I (max. 15% of points):
-------------------------------------------------
+```env
+LLM_API_KEY=your_api_key_here
+```
 
-Implement the following improvements:
+Replace `your_api_key_here` with your actual API key.
 
-The guessing game involves natural language processed by a LLM (Open AI key is provided), e.g. an animal guessing game with yes/no answers
-The game is interesting to play and the evaluation works correct for he vast majority of cases
+**Important:** Never commit your `.env` file or share your API key publicly. Make sure `.env` is included in `.gitignore`.
 
-Additional requirements II (max. 15 of points):
------------------------------------------------
+### 5. Run the application
 
-Implement the following improvements:
+```bash
+streamlit run play.py
+```
 
-The app is able to estimate the quality of guesses
-The estimated guessing qualiy if presented on the stats page in an interesting and transparent way to the user
+The application will open in your browser.
 
+
+## Notes
+
+- The game initially relies on a predefined set of questions and a structured animal dataset.
+- The LLM is only used when the predefined questions are insufficient to identify a single animal.
+- A valid API key and access to the university's LLM endpoint are required for the LLM functionality.
+- Game statistics are stored in the Streamlit session state and are therefore not permanently saved across separate sessions or application restarts.
