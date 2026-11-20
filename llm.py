@@ -5,6 +5,19 @@ import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
 
+"""
+LLM Integration
+
+The game first uses a "predefined list of questions" to narrow down the possible
+animals. If more than one candidate remains after all predefined questions
+have been asked, the LLM takes over and generates additional questions to
+distinguish between the remaining candidates and make a final guess.
+
+So, this hybrid approach allows us to see how ai and traditional rule-based
+code can work together in the same application.
+"""
+
+
 load_dotenv()
 api_key = os.getenv("LLM_API_KEY")
 client = OpenAI(
