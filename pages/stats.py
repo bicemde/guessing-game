@@ -2,26 +2,21 @@ import streamlit as st
 import pandas as pd
 
 
-# Page title
 
-st.title("Animal Guessing Game Statistics")
+st.title("Animal Guessing Game Statistics") # Page title
 
-# Load game history
 
-game_history = st.session_state.get("game_history", [])
+game_history = st.session_state.get("game_history", []) # Load game history
 
-# Create DataFrame
-df = pd.DataFrame(game_history)
+
+df = pd.DataFrame(game_history) # Create DataFrame
 
 
 # Calculate statistics
 
+total_games = len(game_history) # Total number of games
 
-# Total number of games
-total_games = len(game_history)
-
-# Number of correct guesses
-correct_games = 0
+correct_games = 0 # Number of correct guesses
 
 for game in game_history:
     if game.get("success") is True:
@@ -36,7 +31,6 @@ else:
 
 
 # Display statistics
-
 
 st.subheader("Game Results")
 
@@ -64,7 +58,6 @@ with col3:
 
 # Display game history
 
-
 st.subheader("Game History")
 
 if total_games > 0:
@@ -74,8 +67,7 @@ else:
 
 
 
-# Animal Guess Frequency
-
+# Animal Guess Frequency in Bar Chart
 
 st.subheader("How many times was each animal guessed?")
 
@@ -96,8 +88,7 @@ else:
 
 
 
-# Back to game
-
+# Back to game and play again button
 
 if st.button("Back to Game"):
     st.switch_page("play.py")
